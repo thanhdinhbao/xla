@@ -71,10 +71,24 @@ for path in train_image_paths:
         train_images.append(image)
 
 test_image = cv2.imread(test_image_path)
+if test_image is None:
+    print("Không thể đọc ảnh test")
+    exit()
+
+# === Resize tất cả ảnh về cùng kích thước ===
+new_size = (200, 200)
+train_images = [resize_image(image, new_size) for image in train_images]
+test_image = resize_image(test_image, new_size)
 
 # === Tìm ảnh tương đồng ===
-if test_image is not None and len(train_images) > 0:
-    similar_indices = search_similar_images(test_image, train_images, k=3)
-    print("Top ảnh tương tự (index):", similar_indices)
-else:
-    print("Lỗi khi đọc ảnh.")
+k = 5  # Số lượng ảnh tương đồng muốn tìm
+similar_indices = search_similar_images(test_image, train_images, k)
+
+# === Hiển thị ảnh test và các ảnh tương đồng ===
+cv2.imshow("Test Image", test_image)
+for i in range(k):
+    similar_image = train_images[similar_indices[i]]
+    cv2.imshow(f"Similar Image {i + 1}", similar_image)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
