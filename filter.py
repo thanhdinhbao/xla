@@ -2,7 +2,6 @@ import numpy as np
 import cv2
 
 
-
 def convolve2d(image, kernel):
     """
     Hàm thực hiện phép tích chập 2D giữa ảnh và kernel.
@@ -88,4 +87,4 @@ def apply_filter(image_path, kernel, filter_type="convolution"):
 # Ví dụ mặt nạ tích chập trung bình 3x3
 kernel_avg = np.ones((3, 3), dtype=np.float32) / 9
 # Gọi hàm apply_filter với đường dẫn ảnh
-apply_filter("p1.png", kernel_avg, filter_type="convolution")
+apply_filter("p1.png", kernel_avg, filter_type="mean")

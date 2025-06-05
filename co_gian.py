@@ -22,7 +22,7 @@ def giantrang(gray):
     return res
 
 # Đọc ảnh nhị phân
-img = cv2.imread('binary.png', cv2.IMREAD_GRAYSCALE)  # ảnh đầu vào phải là nhị phân trắng đen (0 và 255)
+img = cv2.imread('binary.png', cv2.IMREAD_GRAYSCALE) 
 cv2.imshow("Anh goc", img)
 
 # Áp dụng

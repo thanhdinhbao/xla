@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Đọc và làm mượt ảnh
-img = cv2.imread("4.3.png")
+img = cv2.imread("4.2.png")
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 blurred = cv2.GaussianBlur(gray, (3, 3), 0)
 
