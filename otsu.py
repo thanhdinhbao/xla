@@ -1,7 +1,7 @@
 import cv2
 
 # Đọc ảnh gốc ở dạng grayscale
-image = cv2.imread("your_image.jpg", cv2.IMREAD_GRAYSCALE)
+image = cv2.imread("binary.png", cv2.IMREAD_GRAYSCALE)
 
 # Áp dụng Otsu's thresholding
 # Tham số 0 là threshold ban đầu (không dùng), Otsu sẽ tự tính ngưỡng tối ưu
